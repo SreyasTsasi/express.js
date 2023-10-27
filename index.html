@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form style="text-align: center;"  onsubmit="submitHandler(event)">
+        <input name="todo" type="text" id="todo" placeholder="Add to list">
+        <button type="submit">Submit</button>
+    </form>
+    <ol id="list"></ol>
+
+    <script>
+        let list = document.getElementById("list");
+        let todo = document.getElementById("todo");
+      
+        function submitHandler(event) {
+            event.preventDefault();
+            fetch("/api?name=" +todo.value,{
+                method:"post",
+            })
+                
+                
+            .then(res=>{
+                console.log(res);
+
+            })
+        }
+    
+        
+        
+        
+    
+    </script>
+</body>
+</html>
